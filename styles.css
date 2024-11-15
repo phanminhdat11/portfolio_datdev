@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    overflow-x: hidden;
+}
+
+.text {
+    animation: anim 10s linear infinite;
+}
+
+@keyframes anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.text span {
+    position: absolute;
+    left: 50%;
+    font-size: 1.2rem;
+    transform-origin: 0 80px;
+    color: rgb(174, 195, 213);
+}
+
+/* Cấu hình vòng tròn chính */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1000;
+  
+}
+
+/* Vòng tròn nhỏ (inner circle) */
+.inner-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #ff4a4a;
+    /* Màu của chấm nhỏ */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Vòng tròn lớn (outer circle) */
+.outer-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ff4a4a;
+    /* Màu viền của vòng tròn lớn */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.1s ease-out, height 0.1s ease-out, border 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(255, 74, 74, 0.4);
+    /* Hiệu ứng đổ bóng */
+}
+
+/* Khi hover vào link hoặc button */
+a:hover~.outer-circle,
+button:hover~.outer-circle {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #ff4a4a;
+}
+nav ul li a {
+    color: black;
+}
+nav ul li a.active {
+    color: red; /* Đổi màu chữ khi mục menu được active */
+}
+@media only screen and (max-width: 740px ) {
+
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px ) {
+
+}
